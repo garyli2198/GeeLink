@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611100944) do
+ActiveRecord::Schema.define(version: 20170611165529) do
 
   create_table "follows", force: :cascade do |t|
     t.string "followable_type"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170611100944) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|
