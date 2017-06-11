@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20170611165529) do
     t.float "latitude"
     t.float "longitude"
     t.text "description"
+    t.string "author"
+    t.integer "author_id"
   end
 
   create_table "users", force: :cascade do |t|

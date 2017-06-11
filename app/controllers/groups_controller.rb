@@ -16,12 +16,18 @@ class GroupsController < ApplicationController
         @group_lon = 2
 
         @group = Group.create(group_params)
-        @group.update_attributes({:latitude => @group_lat,:longitude => @group_lon})
+        @group.update_attributes({:latitude => @group_lat,:longitude => @group_lon, :author => current_user.user_name,:author_id => current_user.id})
         redirect_to groups_path
     end
 
     def show
         @group = Group.find(params[:id])
+    end
+
+    def destroy
+        @group = Group.find(params[:id])
+        @group.delete
+        redirect_to groups_path
     end
 
     private def group_params
