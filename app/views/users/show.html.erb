@@ -16,8 +16,10 @@
 	<h3>
 		Groups:
 	</h3>
-		<% @user.all_following.each do |follow| %>
-			<div><%= link_to follow.name, group_path(follow.id) %></div>
+		<% @user.all_following.each do |following| %>
+			<% if following %>
+				<div><%= link_to following.name, group_path(following.id) %></div>
+			<% end %>
 		<% end %>
 	<h3>
 		User Bio:
