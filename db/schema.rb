@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611170514) do
+ActiveRecord::Schema.define(version: 20170611174358) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_comments_on_group_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "follows", force: :cascade do |t|
     t.string "followable_type"
@@ -34,9 +44,9 @@ ActiveRecord::Schema.define(version: 20170611170514) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.text "description"
     t.string "author"
     t.integer "author_id"
+    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|

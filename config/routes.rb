@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   end
   root 'groups#index'
 
-  resources :groups
+  resources :groups do
+    resources :comments
+  end
+
   resources :users do
     collection do
       post ':id/follow' => 'users#follow', as: :follow
