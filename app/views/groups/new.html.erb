@@ -1,5 +1,14 @@
-<%= simple_form_for @group do |f| %>
-  <%= f.input :name %>
-  <%= f.input :category, collection: ["Sports","Educational","Other"] %>
-  <%= f.button :submit %>
-<% end %>
+
+<div class="form-wrapper">
+  <%= simple_form_for @group, html: { class: 'form-horizontal', multipart: true } do |f| %>
+    <div class="form-group text-center">
+      <%= f.input :name %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.input :category, collection: ["Sports", "Educational", "Other"] %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.button :submit, class: 'btn-success' %>
+    </div>
+  <% end %>
+</div>

@@ -40,6 +40,8 @@ gem 'simple_form'
 gem 'geocoder'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails', '~> 4.3.1'
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
