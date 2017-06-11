@@ -14,6 +14,12 @@
 		<i><%= @user.email %></i>
 	</p>
 	<h3>
+		Groups:
+	</h3>
+		<% @user.all_following.each do |follow| %>
+			<div><%= link_to follow.name, group_path(follow.id) %></div>
+		<% end %>
+	<h3>
 		User Bio:
 	</h3>
 	<p>

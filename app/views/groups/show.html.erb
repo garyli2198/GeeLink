@@ -1,9 +1,13 @@
-<h1><%= @group.name %></h1>
- <% if current_user.following?(@group) %>
+<% if current_user.following?(@group) %>
             <div id = "unfollow-link" class = "link"><%= link_to 'Leave Group', unfollow_users_path(@group.id), method: :post %></div>
         <% else %>
             <div id = "follow-link" class = "link"><%= link_to 'Join Group', follow_users_path(@group.id), method: :post %></div>
         <% end %>
-<h2>Number of Members: <%= @group.followers_count %></h2>
+<h1><%= @group.name %></h1>
+<h3>Number of Members: <%= @group.followers_count %></h3>
+<% @group.followers.each do |follower| %>
+	<div><%= link_to follower.user_name, user_path(follower.id) %></div>
+<% end %>
 
-
+<h2>Group Description:</h2>
+<p>Description here</p>
