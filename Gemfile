@@ -38,6 +38,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'simple_form'
 gem 'geocoder'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails', '~> 4.3.1'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

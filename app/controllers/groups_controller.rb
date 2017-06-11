@@ -12,8 +12,8 @@ class GroupsController < ApplicationController
     end
 
     def create
-        @group_lat = request.location.latitude
-        @group_lon = request.location.longitude
+        @group_lat = 1
+        @group_lon = 2
 
         @group = Group.create(group_params)
         @group.update_attributes({:latitude => @group_lat,:longitude => @group_lon})
@@ -23,6 +23,7 @@ class GroupsController < ApplicationController
     def show
         @group = Group.find(params[:id])
     end
+
     private def group_params
         params.require(:group).permit(:name,:category)
     end

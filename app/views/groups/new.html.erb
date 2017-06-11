@@ -1,5 +1,5 @@
 <%= simple_form_for @group do |f| %>
   <%= f.input :name %>
-  <%= f.input :category %>
+  <%= f.input :category, collection: ["Sports","Educational","Other"] %>
   <%= f.button :submit %>
 <% end %>

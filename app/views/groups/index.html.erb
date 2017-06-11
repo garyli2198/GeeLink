@@ -1,11 +1,18 @@
-<h1>Index</h1>
+<h1>Groups Near You</h1>
 
-<% @groups.each do |group| %>
-    <% if true#if (@user_lat - group.latitude).abs < 0.3 and (@user_lon - group.longitude).abs < 0.3 %>
-        <%= group.name %>
+
+
+<div class="posts-wrapper row">
+  <% @groups.each do |group| %>
+    <div class="post">
+      <div class="post-head">
+        <div class="name">
+          <%= group.name %>
+        </div>
+      </div>
+      <p class="caption">
         <%= group.category %>
-        <%= link_to 'Click here to learn more!', group_path(group) %>
-        <br>
-    <% end %>
-<% end %>
-
+      </p>
+    </div>
+  <% end %>
+</div>
