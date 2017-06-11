@@ -21,10 +21,10 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to "New Group", new_group_path %>
-        </li>
         <% if current_user.present? %>
+          <li>
+            <%= link_to "New Group", new_group_path %>
+          </li>
           <li>
             <%= link_to('Profile', user_path(current_user.id)) %>
           </li>
@@ -35,8 +35,10 @@
           <li>
                 <%= link_to('Login', new_user_session_path)  %>  
           </li>
+          <li>
+                <%= link_to('Register', new_user_registration_path) %>
+          </li>
         <% end %>
-      
       </ul>
     </div>
   </div>
