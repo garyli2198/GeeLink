@@ -1,1 +1,10 @@
 <h1>Index</h1>
+<h2><%= @user_ip %></h2>
+<h2><%= @user_lat%></h2>
+
+<% @groups.each do |group| %>
+  <%= group.name %>
+  <%= group.category %>
+  <br>
+<% end %>
+
