@@ -25,7 +25,11 @@
           <%= link_to "New Group", new_group_path %>
         </li>
         
+<<<<<<< HEAD
         <% if current_user.present? %>
+=======
+        <% if current_user %>
+>>>>>>> e32365531b61281772a792050842e88c15c49094
           <li>
               <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
          </li>

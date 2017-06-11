@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   root 'groups#index'
 
   resources :groups
-  resources :users, only: [:show]
+  resources :users do
+    collection do
+      post ':id/follow' => 'users#follow', as: :follow
+      post ':id/unfollow' => 'users#unfollow', as: :unfollow
+    end
+  end
 
 
 end
