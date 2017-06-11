@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+    before_action :authenticate_user!  
+
     def index
         @groups = Group.all
         @user_lat = request.location.latitude
@@ -18,7 +20,9 @@ class GroupsController < ApplicationController
         redirect_to groups_path
     end
 
-
+    def show
+        @group = Group.find(params[:id])
+    end
     private def group_params
         params.require(:group).permit(:name,:category)
     end
