@@ -1,12 +1,10 @@
 <h1>Index</h1>
-<h2><%= @user_ip %></h2>
-<h2><%= @user_city%></h2>
-<h2><%= @user_lat %></h2>
-<h2><%= @user_lon %></h2>
 
 <% @groups.each do |group| %>
-  <%= group.name %>
-  <%= group.category %>
-  <br>
+    <% if (@user_lat - group.latitude).abs < 0.3 and (@user_lon - group.longitude).abs < 0.3 %>
+        <%= group.name %>
+        <%= group.category %>
+        <br>
+    <% end %>
 <% end %>
 

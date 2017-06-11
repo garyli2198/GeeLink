@@ -1,11 +1,8 @@
 class GroupsController < ApplicationController
     def index
         @groups = Group.all
-        @user_ip = request.location.ip
-        @user_city = request.location.city
         @user_lat = request.location.latitude
         @user_lon = request.location.longitude
-       # @user_lon = request.location.lon
     end
 
     def new
@@ -13,13 +10,16 @@ class GroupsController < ApplicationController
     end
 
     def create
-        @user_ip = request.remote_ip
+        @group_lat = 1
+        @group_lon = 2
 
         @group = Group.create(group_params)
+        @group.update_attributes({:latitude => @group_lat,:longitude => @group_lon})
         redirect_to groups_path
     end
 
+
     private def group_params
-        params.require(:group).permit(:name,:category,:latitude,:longitude)
+        params.require(:group).permit(:name,:category)
     end
 end
